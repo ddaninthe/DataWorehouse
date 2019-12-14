@@ -47,7 +47,7 @@ BEGIN
         ,MiddleName
         ,LastName
         ,BirthDate
-        ,Gender
+        ,LEFT(Gender, 1) as Gender
         ,HireDate
         ,SalariedFlag
     FROM staging.SrcEmployee e

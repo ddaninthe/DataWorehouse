@@ -60,9 +60,11 @@ CREATE TABLE [dwh].[FactSales](
         [EmployeeId] [int] NOT NULL,
         [TimeId] [int] NOT NULL,
         [Price] [money] NOT NULL,
-CONSTRAINT [PK_dwh_FactSales_OrderId] PRIMARY KEY CLUSTERED
+CONSTRAINT [PK_dwh_FactSales_OrderIdEmployeeIdTimeId] PRIMARY KEY CLUSTERED
 (
-       [OrderId] ASC
+       [OrderId] ASC,
+       [EmployeeId],
+       [TimeId]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 

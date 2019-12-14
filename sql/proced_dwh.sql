@@ -13,12 +13,12 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT
+    SELECT DISTINCT
        OrderMonth
        ,OrderYear
     FROM staging.SasSalesOrderHeader
-    ORDER BY OrderYear DESC
-		,OrderMonth DESC
+    ORDER BY OrderYear ASC
+		,OrderMonth ASC
 END
 GO
 
