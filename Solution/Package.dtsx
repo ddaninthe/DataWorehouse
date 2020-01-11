@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{86160091-4406-4321-B6AA-8AC7E63DAFFC}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{3F392EA8-A902-4B66-B0AD-E217493A588E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -662,6 +662,13 @@
                           cachedName="OrderMonth"
                           externalMetadataColumnId="Package\DataWarehouse\Load DimTime\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OrderMonth]"
                           lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[OrderMonth]" />
+                        <inputColumn
+                          refId="Package\DataWarehouse\Load DimTime\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[AlternateKey]"
+                          cachedDataType="wstr"
+                          cachedLength="7"
+                          cachedName="AlternateKey"
+                          externalMetadataColumnId="Package\DataWarehouse\Load DimTime\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[AlternateKey]"
+                          lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[AlternateKey]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -677,6 +684,11 @@
                           refId="Package\DataWarehouse\Load DimTime\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OrderYear]"
                           dataType="i4"
                           name="OrderYear" />
+                        <externalMetadataColumn
+                          refId="Package\DataWarehouse\Load DimTime\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[AlternateKey]"
+                          dataType="wstr"
+                          length="7"
+                          name="AlternateKey" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -784,6 +796,16 @@
                           lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[OrderYear]"
                           name="OrderYear"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[AlternateKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[AlternateKey]"
+                          length="7"
+                          lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[AlternateKey]"
+                          name="AlternateKey"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -795,6 +817,11 @@
                           refId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[OrderYear]"
                           dataType="i4"
                           name="OrderYear" />
+                        <externalMetadataColumn
+                          refId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[AlternateKey]"
+                          dataType="wstr"
+                          length="61"
+                          name="AlternateKey" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -812,6 +839,12 @@
                           dataType="i4"
                           lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[OrderYear]"
                           name="OrderYear" />
+                        <outputColumn
+                          refId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[AlternateKey]"
+                          dataType="wstr"
+                          length="61"
+                          lineageId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[AlternateKey]"
+                          name="AlternateKey" />
                         <outputColumn
                           refId="Package\DataWarehouse\Load DimTime\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                           dataType="i4"
@@ -1176,7 +1209,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate DimEmployee"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1192,7 +1225,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate DimTime"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3443,7 +3476,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate SasEmployee"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3459,7 +3492,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate SasSalesOrderHeader"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3475,7 +3508,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate SrcEmployee"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3507,7 +3540,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate SrcSalesOrderHeader"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3610,6 +3643,56 @@
           Size="157,42"
           Id="Package\DataWarehouse\Add Constraints"
           TopLeft="206.125,181.8" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DataWarehouse\Drop Constraints"
+          TopLeft="204.125,74.6" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DataWarehouse\Load DimEmployee"
+          TopLeft="15,233.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DataWarehouse\Load DimTime"
+          TopLeft="371,235.4" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DataWarehouse\Load FactSales"
+          TopLeft="207.125,289" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\DataWarehouse\Truncate DimEmployee"
+          TopLeft="5.5,125" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\DataWarehouse\Truncate DimTime"
+          TopLeft="362,128.2" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DataWarehouse\Truncate FactSales"
+          TopLeft="197.625,9" />
+        <EdgeLayout
+          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 10]"
+          TopLeft="284.625,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.6"
+              Start="0,0"
+              End="0,16.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 11]"
           TopLeft="362,149.2">
@@ -3658,6 +3741,118 @@
                     Point3="60.2916666666666,4" />
                   <mssgle:LineSegment
                     End="60.2916666666666,28.3000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 13]"
+          TopLeft="204.125,95.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-101.625,29.4"
+              Start="0,0"
+              End="-101.625,21.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-97.625,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-97.625,0"
+                    Point2="-101.625,0"
+                    Point3="-101.625,4" />
+                  <mssgle:LineSegment
+                    End="-101.625,21.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 14]"
+          TopLeft="190,254.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.125,34.5000000000001"
+              Start="0,0"
+              End="70.125,27.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.125,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.125,0"
+                    Point2="70.125,0"
+                    Point3="70.125,4" />
+                  <mssgle:LineSegment
+                    End="70.125,27.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 15]"
+          TopLeft="371,256.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.875,32.6"
+              Start="0,0"
+              End="-61.875,25.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-57.875,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.875,0"
+                    Point2="-61.875,0"
+                    Point3="-61.875,4" />
+                  <mssgle:LineSegment
+                    End="-61.875,25.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 16]"
+          TopLeft="365.125,95.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.375,32.6"
+              Start="0,0"
+              End="81.375,25.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.375,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.375,0"
+                    Point2="81.375,0"
+                    Point3="81.375,4" />
+                  <mssgle:LineSegment
+                    End="81.375,25.1" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3722,168 +3917,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="161,42"
-          Id="Package\DataWarehouse\Drop Constraints"
-          TopLeft="204.125,74.6" />
-        <EdgeLayout
-          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 10]"
-          TopLeft="284.625,51">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.6"
-              Start="0,0"
-              End="0,16.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 13]"
-          TopLeft="204.125,95.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-101.625,29.4"
-              Start="0,0"
-              End="-101.625,21.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-97.625,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-97.625,0"
-                    Point2="-101.625,0"
-                    Point3="-101.625,4" />
-                  <mssgle:LineSegment
-                    End="-101.625,21.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 16]"
-          TopLeft="365.125,95.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81.375,32.6"
-              Start="0,0"
-              End="81.375,25.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="77.375,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="77.375,0"
-                    Point2="81.375,0"
-                    Point3="81.375,4" />
-                  <mssgle:LineSegment
-                    End="81.375,25.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\DataWarehouse\Load DimEmployee"
-          TopLeft="15,233.5" />
-        <EdgeLayout
-          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 14]"
-          TopLeft="190,254.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="70.125,34.5000000000001"
-              Start="0,0"
-              End="70.125,27.0000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="66.125,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="66.125,0"
-                    Point2="70.125,0"
-                    Point3="70.125,4" />
-                  <mssgle:LineSegment
-                    End="70.125,27.0000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="151,42"
-          Id="Package\DataWarehouse\Load DimTime"
-          TopLeft="371,235.4" />
-        <EdgeLayout
-          Id="Package\DataWarehouse.PrecedenceConstraints[Contrainte 15]"
-          TopLeft="371,256.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61.875,32.6"
-              Start="0,0"
-              End="-61.875,25.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-57.875,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-57.875,0"
-                    Point2="-61.875,0"
-                    Point3="-61.875,4" />
-                  <mssgle:LineSegment
-                    End="-61.875,25.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\DataWarehouse\Load FactSales"
-          TopLeft="207.125,289" />
-        <NodeLayout
-          Size="194,42"
-          Id="Package\DataWarehouse\Truncate DimEmployee"
-          TopLeft="5.5,125" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\DataWarehouse\Truncate DimTime"
-          TopLeft="362,128.2" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\DataWarehouse\Truncate FactSales"
-          TopLeft="197.625,9" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -3895,9 +3928,111 @@
           Size="234,42"
           Id="Package\Staging\Extract Employee Data"
           TopLeft="276,89" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Staging\Extract Person Data"
+          TopLeft="11,90" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Staging\Extract SalesOrderHeader"
+          TopLeft="529.5,89" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Staging\Transform Person Data"
+          TopLeft="157,242" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Staging\Transform Sales Data"
+          TopLeft="553.5,241" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Staging\Truncate SasEmployee"
+          TopLeft="158.5,174" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Staging\Truncate SasSalesOrderHeader"
+          TopLeft="528.5,169" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Staging\Truncate SrcEmployee"
+          TopLeft="276,9" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Staging\Truncate SrcPerson"
+          TopLeft="11,8" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Staging\Truncate SrcSalesOrderHeader"
+          TopLeft="529.5,10" />
+        <EdgeLayout
+          Id="Package\Staging.PrecedenceConstraints[Contrainte]"
+          TopLeft="128,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Staging.PrecedenceConstraints[Contrainte 1]"
           TopLeft="393,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="646.5,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Staging.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="646.5,131">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3951,32 +4086,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Staging\Extract Person Data"
-          TopLeft="11,90" />
-        <EdgeLayout
-          Id="Package\Staging.PrecedenceConstraints[Contrainte]"
-          TopLeft="128,50">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40"
-              Start="0,0"
-              End="0,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Staging.PrecedenceConstraints[Contrainte 5]"
           TopLeft="128,132">
@@ -4011,58 +4120,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Staging\Extract SalesOrderHeader"
-          TopLeft="529.5,89" />
-        <EdgeLayout
-          Id="Package\Staging.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="646.5,52">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Staging.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="646.5,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Staging\Transform Person Data"
-          TopLeft="157,242" />
         <EdgeLayout
           Id="Package\Staging.PrecedenceConstraints[Contrainte 7]"
           TopLeft="254.25,216">
@@ -4085,10 +4142,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Staging\Transform Sales Data"
-          TopLeft="553.5,241" />
         <EdgeLayout
           Id="Package\Staging.PrecedenceConstraints[Contrainte 8]"
           TopLeft="646.5,211">
@@ -4111,26 +4164,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Staging\Truncate SasEmployee"
-          TopLeft="158.5,174" />
-        <NodeLayout
-          Size="236,42"
-          Id="Package\Staging\Truncate SasSalesOrderHeader"
-          TopLeft="528.5,169" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Staging\Truncate SrcEmployee"
-          TopLeft="276,9" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Staging\Truncate SrcPerson"
-          TopLeft="11,8" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Staging\Truncate SrcSalesOrderHeader"
-          TopLeft="529.5,10" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -4163,6 +4196,185 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DataWarehouse\Load DimEmployee">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DataWarehouse\Load DimEmployee\Source OLE DB"
+          TopLeft="393,130" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DataWarehouse\Load DimEmployee\Destination OLE DB"
+          TopLeft="377,259" />
+        <EdgeLayout
+          Id="Package\DataWarehouse\Load DimEmployee.Paths[Sortie de source OLE DB]"
+          TopLeft="468.5,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load DimEmployee\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load DimEmployee\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DataWarehouse\Load DimTime">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DataWarehouse\Load DimTime\Source OLE DB"
+          TopLeft="401,138" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DataWarehouse\Load DimTime\Destination OLE DB"
+          TopLeft="394,258" />
+        <EdgeLayout
+          Id="Package\DataWarehouse\Load DimTime.Paths[Sortie de source OLE DB]"
+          TopLeft="481,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load DimTime\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load DimTime\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DataWarehouse\Load FactSales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DataWarehouse\Load FactSales\Source OLE DB"
+          TopLeft="437,133" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DataWarehouse\Load FactSales\Destination OLE DB"
+          TopLeft="428,223" />
+        <EdgeLayout
+          Id="Package\DataWarehouse\Load FactSales.Paths[Sortie de source OLE DB]"
+          TopLeft="516,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load FactSales\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DataWarehouse\Load FactSales\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Staging\Extract Employee Data">
     <LayoutInfo>
@@ -4358,187 +4570,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DataWarehouse\Load DimEmployee">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DataWarehouse\Load DimEmployee\Source OLE DB"
-          TopLeft="393,130" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\DataWarehouse\Load DimEmployee\Destination OLE DB"
-          TopLeft="377,259" />
-        <EdgeLayout
-          Id="Package\DataWarehouse\Load DimEmployee.Paths[Sortie de source OLE DB]"
-          TopLeft="468.5,172">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,87"
-              Start="0,0"
-              End="0,79.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load DimEmployee\Destination OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load DimEmployee\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DataWarehouse\Load DimTime">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DataWarehouse\Load DimTime\Source OLE DB"
-          TopLeft="401,138" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\DataWarehouse\Load DimTime\Destination OLE DB"
-          TopLeft="394,258" />
-        <EdgeLayout
-          Id="Package\DataWarehouse\Load DimTime.Paths[Sortie de source OLE DB]"
-          TopLeft="481,180">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,78"
-              Start="0,0"
-              End="0,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load DimTime\Destination OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load DimTime\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DataWarehouse\Load FactSales">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DataWarehouse\Load FactSales\Source OLE DB"
-          TopLeft="437,133" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\DataWarehouse\Load FactSales\Destination OLE DB"
-          TopLeft="428,223" />
-        <EdgeLayout
-          Id="Package\DataWarehouse\Load FactSales.Paths[Sortie de source OLE DB]"
-          TopLeft="516,175">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load FactSales\Destination OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DataWarehouse\Load FactSales\Source OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

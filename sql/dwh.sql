@@ -17,6 +17,7 @@ CREATE TABLE [dwh].[DimTime](
        [TimeId] [int] IDENTITY(1,1) NOT NULL,
        [OrderMonth] [int] NOT NULL,
        [OrderYear] [int] NOT NULL,
+       [AlternateKey] [nvarchar](7) NOT NULL,
 CONSTRAINT [PK_dwh_DimTime_TimeId] PRIMARY KEY CLUSTERED
 (
        [TimeId] ASC

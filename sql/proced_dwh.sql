@@ -16,6 +16,7 @@ BEGIN
     SELECT DISTINCT
        OrderMonth
        ,OrderYear
+       ,CAST(OrderMonth as nvarchar) + '-' + CAST(OrderYear as nvarchar) AS AlternateKey
     FROM staging.SasSalesOrderHeader
     ORDER BY OrderYear ASC
 		,OrderMonth ASC
